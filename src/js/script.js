@@ -1,6 +1,5 @@
 const ul = document.querySelector('.containerListaProdutos ul');
 let carrinhoAtt = []
-console.log(carrinhoAtt)
 
 function montarListaProdutos(listaProdutos) {
     ul.innerHTML = '';
@@ -44,17 +43,14 @@ function montarListaProdutos(listaProdutos) {
             li.appendChild(p);
             li.appendChild(span)
 
-            console.log(carrinho)
-
-
-
         })
 
-        const sumall = carrinhoAtt.map(produto => produto.preco).reduce((prev, curr) => prev + curr, 0);
+        let total = carrinhoAtt.reduce((a, produto) => {
+            console.log(reduce)
+            return a + Number(produto.preco)
+        }, 0)
 
-        console.log(sumall)
-
-
+        console.log(total)
 
         ////////////////////////////
         const listaIng = produto.componentes

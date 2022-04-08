@@ -1,5 +1,6 @@
 const ul = document.querySelector('.containerListaProdutos ul');
 let carrinhoAtt = []
+console.log(carrinhoAtt)
 
 function montarListaProdutos(listaProdutos) {
     ul.innerHTML = '';
@@ -27,7 +28,7 @@ function montarListaProdutos(listaProdutos) {
             const h3 = document.createElement('h3');
             const p = document.createElement('p');
             const id = button.getAttribute("id")
-            const productFind = produtos.filter((produto) => {
+            const productFind = produtos.find((produto) => {
                 return produto.id === Number(id);
             })
             carrinhoAtt.push(productFind)
@@ -43,14 +44,16 @@ function montarListaProdutos(listaProdutos) {
             li.appendChild(p);
             li.appendChild(span)
 
+            let total = carrinhoAtt.reduce((a, produto) => {
+                return a + Number(produto.preco)
+            }, 0)
+            console.log(total)
+            const resultado = document.querySelector('#precoTotal')
+            resultado.innerText = total
         })
 
-        let total = carrinhoAtt.reduce((a, produto) => {
-            console.log(reduce)
-            return a + Number(produto.preco)
-        }, 0)
 
-        console.log(total)
+
 
         ////////////////////////////
         const listaIng = produto.componentes
